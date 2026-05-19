@@ -1,0 +1,30 @@
+{
+  "name": "pathawk-web",
+  "private": true,
+  "version": "0.0.0",
+  "description": "Pathawk — веб-UI (Vue)",
+  "type": "module",
+  "scripts": {
+    "dev": "vite",
+    "build": "vue-tsc -b && vite build",
+    "preview": "vite preview",
+    "verify-import": "tsx scripts/verify-import.ts"
+  },
+  "dependencies": {
+    "@codemirror/lang-html": "^6.4.11",
+    "@codemirror/lang-javascript": "^6.2.5",
+    "@codemirror/lang-json": "^6.0.2",
+    "@codemirror/lang-xml": "^6.1.0",
+    "@phosphor-icons/vue": "^2.2.1",
+    "codemirror": "^6.0.2",
+    "vue": "^3.5.13",
+    "yaml": "^2.8.3"
+  },
+  "devDependencies": {
+    "@vitejs/plugin-vue": "^5.2.1",
+    "tsx": "^4.19.3",
+    "typescript": "~5.7.2",
+    "vite": "^6.0.3",
+    "vue-tsc": "^2.2.0"
+  }
+}

@@ -1,0 +1,10 @@
+node_modules/
+dist/
+out/
+resources/local-agent
+resources/local-agent.exe
+local-agent/local-agent-data/
+*.bolt
+.env
+.idea/
+.vscode/

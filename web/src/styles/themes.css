@@ -1,0 +1,145 @@
+/**
+ * Токены темы: светлая / тёмная.
+ * Палитра «сокол ночи»: глубокий сине-фиолетовый, без бирюзы/зелёного акцента.
+ * Тема: <html data-theme="light|dark">.
+ */
+:root,
+[data-theme="light"] {
+  color-scheme: light;
+
+  --accent: #4338ca;
+  --accent-hover: #3730a3;
+  --accent-muted: rgba(67, 56, 202, 0.14);
+  --accent-2: #6d28d9;
+  --accent-2-muted: rgba(109, 40, 217, 0.12);
+
+  --logo-a: #5b4fc9;
+  --logo-b: #4c1d95;
+
+  --bg-app: #e4e8f4;
+  --bg-app-glow-1: rgba(79, 70, 229, 0.14);
+  --bg-elevated: #ffffff;
+  --bg-sidebar: rgba(255, 255, 255, 0.58);
+  --bg-subtle: #eceef6;
+  --bg-input: #ffffff;
+  --bg-code: #e8ebf5;
+  --bg-hover: rgba(49, 46, 129, 0.06);
+
+  --header-bg: rgba(255, 255, 255, 0.82);
+  --header-border: rgba(91, 79, 201, 0.16);
+
+  --border-default: #c4c8dc;
+  --border-strong: #a8adc4;
+  --border-focus: var(--accent);
+
+  --text-primary: #16152a;
+  --text-secondary: #3d3a5c;
+  --text-muted: #6b6888;
+  --text-on-accent: #f8f8ff;
+
+  --shadow-sm: 0 1px 2px rgba(22, 21, 45, 0.06);
+  --shadow-md: 0 8px 28px rgba(22, 21, 45, 0.1);
+  --shadow-glow: 0 0 40px rgba(91, 79, 201, 0.1);
+
+  --radius-sm: 5px;
+  --radius-md: 10px;
+  --radius-lg: 14px;
+  --radius-pill: 999px;
+
+  --font-sans: "Outfit", system-ui, -apple-system, "Segoe UI", sans-serif;
+  --font-mono: "IBM Plex Mono", ui-monospace, "SF Mono", Menlo, Consolas, monospace;
+
+  --header-h: 48px;
+  --status-h: 28px;
+  --activity-w: 48px;
+  --sidebar-w: 300px;
+  --chrome-rail: #e6e8f2;
+  --chrome-nav: #f0f1f8;
+  --chrome-main: #ffffff;
+  --chrome-divider: #d8dbe8;
+
+  --method-get: #4338ca;
+  --method-post: #a85507;
+  --method-put: #5b21b6;
+  --method-patch: #6d28d9;
+  --method-delete: #b91c1c;
+  --method-default: #64748b;
+}
+
+[data-theme="dark"] {
+  color-scheme: dark;
+
+  --accent: #8b9cf4;
+  --accent-hover: #a5b4fc;
+  --accent-muted: rgba(139, 156, 244, 0.18);
+  --accent-2: #a78bfa;
+  --accent-2-muted: rgba(167, 139, 250, 0.16);
+
+  --logo-a: #a5b4fc;
+  --logo-b: #c4b5fd;
+
+  --bg-app: #080b14;
+  --bg-app-glow-1: rgba(79, 70, 229, 0.2);
+  --bg-elevated: #111625;
+  --bg-sidebar: rgba(15, 18, 32, 0.78);
+  --bg-subtle: #161b2e;
+  --bg-input: #14192c;
+  --bg-code: #0d101c;
+  --bg-hover: rgba(165, 180, 252, 0.06);
+
+  --header-bg: rgba(8, 11, 20, 0.88);
+  --header-border: rgba(129, 140, 248, 0.2);
+
+  --border-default: #2a3148;
+  --border-strong: #3a415c;
+  --border-focus: var(--accent);
+
+  --text-primary: #e8eaf4;
+  --text-secondary: #a8b0cc;
+  --text-muted: #6b7390;
+  --text-on-accent: #0c0f1a;
+
+  --shadow-sm: 0 1px 2px rgba(0, 0, 0, 0.4);
+  --shadow-md: 0 12px 40px rgba(0, 0, 0, 0.5);
+  --shadow-glow: 0 0 48px rgba(99, 102, 241, 0.08);
+
+  --chrome-rail: #0c101c;
+  --chrome-nav: #101524;
+  --chrome-main: #14192c;
+  --chrome-divider: #2a3148;
+
+  --method-get: #8b9cf4;
+  --method-post: #fbbf24;
+  --method-put: #a78bfa;
+  --method-patch: #c4b5fd;
+  --method-delete: #fca5a5;
+  --method-default: #94a3b8;
+}
+
+html,
+body,
+#app {
+  height: 100%;
+  margin: 0;
+}
+
+body {
+  font-family: var(--font-sans);
+  font-size: 14px;
+  line-height: 1.45;
+  color: var(--text-primary);
+  -webkit-font-smoothing: antialiased;
+  background-color: var(--bg-app);
+  background-image: radial-gradient(
+    ellipse 110% 75% at 100% 0%,
+    var(--bg-app-glow-1),
+    transparent 58%
+  );
+  background-attachment: fixed;
+}
+
+*,
+*::before,
+*::after {
+  box-sizing: border-box;
+}

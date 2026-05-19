@@ -1,0 +1,12 @@
+# Мета-папка: игнор артефактов вложенных проектов (у каждого репо свой .gitignore)
+server/bin/
+web/node_modules/
+web/dist/
+desktop/node_modules/
+desktop/dist/
+desktop/out/
+desktop/local-agent/local-agent-data/
+*.bolt
+.env
+.idea/
+.vscode/

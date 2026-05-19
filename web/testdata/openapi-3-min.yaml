@@ -1,0 +1,10 @@
+openapi: 3.0.3
+info:
+  title: Fixture OpenAPI YAML
+  version: "1"
+servers:
+  - url: https://httpbin.org
+paths:
+  /get:
+    get:
+      summary: Simple get
