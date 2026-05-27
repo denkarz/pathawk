@@ -13,9 +13,12 @@ app.setName("Pathawk");
 
 function agentExecutable() {
   const ext = process.platform === "win32" ? ".exe" : "";
+  const name = "local-agent" + ext;
   const candidates = [
-    path.join(__dirname, "..", "resources", "local-agent" + ext),
-    path.join(__dirname, "..", "local-agent", "local-agent" + ext),
+    path.join(process.resourcesPath, "resources", name),
+    path.join(process.resourcesPath, name),
+    path.join(__dirname, "..", "resources", name),
+    path.join(__dirname, "..", "local-agent", name),
   ];
   for (const p of candidates) {
     if (fs.existsSync(p)) return p;

@@ -1,13 +1,45 @@
 # pathawk-desktop
 
-Документация продукта: при мета-репозитории — [../docs/README.md](../docs/README.md).
+**Electron + Vue 3** + **`local-agent/`** (Go, bbolt). UI — соседний каталог [`../web`](../web).
 
-**Electron + Vue 3** + вложенный **`local-agent/`** (Go, bbolt) — локальное хранилище поставляется вместе с десктопом.
+## Разработка
 
-- **Отдельный git-репозиторий:** `git init` здесь. UI: соседний каталог **`../web`** (при другом расположении поправьте скрипты в `package.json`).
-- **Разработка:** из `desktop/` выполнить `npm install`, затем `npm run dev` — поднимется Vite (`web`, порт 5173) и откроется Electron.
-- **Linux:** в скриптах задано `ELECTRON_DISABLE_SANDBOX=1` (иначе часто падает `chrome-sandbox`). Для прод-сборки при необходимости настройте настоящий SUID sandbox или политику запуска.
-- **Сборка артефактов без установщика:** `npm run build:pack` — собирает `local-agent` в `resources/` и копирует `web/dist` → `dist/renderer/`. Проверка UI: `npm run start:prod` (нужен предварительно `build:pack`).
-- **local-agent (E1):** слушает `127.0.0.1:38471` (или `LOCAL_AGENT_PORT`). Данные: `app.getPath('userData')/local-agent/store.bolt`. REST: `GET /health`, `GET/PUT/DELETE /api/v1/collections/...`. В renderer: `window.agent` через preload.
-- **Окружения (E4):** те же хост/порт — `GET/PUT/DELETE /api/v1/environments/{id}`, список `GET /api/v1/environments`. Документ: `{ id, name, variables: { "key": "value" } }`.
-- **HTTP из UI (E2):** `window.desktop.httpRequest({ method, url, headers, body })` — выполняется в main process (`ipcMain` → `fetch`).
+```bash
+npm install          # в desktop/
+npm run dev          # Vite :5173 + Electron
+```
+
+На Linux в dev задано `ELECTRON_DISABLE_SANDBOX=1` (см. `package.json`).
+
+## Локальная prod-сборка (без упаковки)
+
+```bash
+npm run build:pack
+npm run start:prod
+```
+
+## Portable-дистрибутив (electron-builder)
+
+```bash
+# из корня мета-репо: сначала web
+cd ../web && npm ci && cd ../desktop && npm ci
+
+npm run build:dist:linux   # AppImage + tar.gz → out/
+npm run build:dist:win     # portable .exe
+npm run build:dist:mac     # .zip (на macOS)
+```
+
+Артефакты: `out/Pathawk-<version>-<platform>.<ext>`
+
+Публикация: тег `v*` → [release-desktop.yml](../.github/workflows/release-desktop.yml). Подробнее: [docs/RELEASING.md](../docs/RELEASING.md).
+
+## local-agent
+
+- Порт: `127.0.0.1:38471` (`LOCAL_AGENT_PORT`)
+- Данные: `app.getPath('userData')/local-agent/`
+- В packaged-сборке бинарь: `resources/local-agent` (см. `electron/main.cjs`)
+
+## Примечания
+
+- Подпись кода (Windows/macOS) в MVP не настроена — пользователи могут видеть предупреждение ОС.
+- Документация продукта: [docs/](../docs/)

@@ -1,8 +1,10 @@
 {
   "name": "pathawk",
   "private": true,
-  "version": "0.0.0",
+  "version": "0.1.0",
   "description": "Pathawk — клиент (Electron + UI из pathawk-web)",
+  "author": "Denis Karzykin",
+  "license": "MIT",
   "main": "electron/main.cjs",
   "scripts": {
     "dev": "concurrently -k \"npm run dev --prefix ../web\" \"wait-on http://127.0.0.1:5173 && cross-env ELECTRON_DISABLE_SANDBOX=1 NODE_ENV=development electron .\"",
@@ -10,13 +12,52 @@
     "build:agent": "node scripts/build-agent.mjs",
     "build:renderer": "npm run build --prefix ../web && node scripts/prepare-renderer.mjs",
     "build:pack": "npm run build:agent && npm run build:renderer",
+    "build:dist": "npm run build:pack && electron-builder",
+    "build:dist:linux": "npm run build:pack && electron-builder --linux",
+    "build:dist:win": "npm run build:pack && electron-builder --win",
+    "build:dist:mac": "npm run build:pack && electron-builder --mac",
     "start:prod": "cross-env ELECTRON_DISABLE_SANDBOX=1 NODE_ENV=production electron ."
   },
+  "build": {
+    "appId": "io.pathawk.desktop",
+    "productName": "Pathawk",
+    "copyright": "Copyright © 2026 Denis Karzykin",
+    "directories": {
+      "output": "out",
+      "buildResources": "electron"
+    },
+    "files": [
+      "electron/**/*",
+      "dist/renderer/**/*",
+      "package.json"
+    ],
+    "extraResources": [
+      {
+        "from": "resources/",
+        "to": "resources",
+        "filter": ["local-agent*"]
+      }
+    ],
+    "linux": {
+      "target": ["AppImage", "tar.gz"],
+      "category": "Development",
+      "artifactName": "Pathawk-${version}-${os}-${arch}.${ext}"
+    },
+    "win": {
+      "target": ["portable"],
+      "artifactName": "Pathawk-${version}-${os}-${arch}-portable.${ext}"
+    },
+    "mac": {
+      "target": ["zip"],
+      "artifactName": "Pathawk-${version}-${os}-${arch}.${ext}"
+    }
+  },
   "devDependencies": {
+    "@resvg/resvg-js": "^2.6.2",
     "concurrently": "^9.1.2",
     "cross-env": "^7.0.3",
     "electron": "^34.0.2",
-    "wait-on": "^8.0.1",
-    "@resvg/resvg-js": "^2.6.2"
+    "electron-builder": "^25.1.8",
+    "wait-on": "^8.0.1"
   }
 }

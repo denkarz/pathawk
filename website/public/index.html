@@ -1,0 +1,115 @@
+<!DOCTYPE html>
+<html lang="ru">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1" />
+    <title>Pathawk — HTTP-клиент для API</title>
+    <meta
+      name="description"
+      content="Pathawk — десктопный HTTP-клиент с офлайн-режимом, коллекциями, Git и импортом OpenAPI. Скачайте portable-сборку."
+    />
+    <link rel="stylesheet" href="styles.css" />
+  </head>
+  <body>
+    <header class="header">
+      <div class="container header__inner">
+        <a class="brand" href="./">
+          <img
+            class="brand__logo"
+            src="assets/pathhawk-eagle.svg"
+            alt=""
+            width="40"
+            height="40"
+          />
+          <span class="brand__name">Pathawk</span>
+        </a>
+        <nav class="nav">
+          <a href="https://github.com/denkarz/pathawk">GitHub</a>
+          <a href="https://github.com/denkarz/pathawk/releases">Релизы</a>
+          <a href="https://github.com/denkarz/pathawk/blob/master/docs/PRD.md">Документация</a>
+        </nav>
+      </div>
+    </header>
+
+    <main>
+      <section class="hero">
+        <div class="container hero__inner">
+          <div class="hero__copy">
+            <p class="eyebrow">HTTP-клиент для API</p>
+            <h1>Pathawk</h1>
+            <p class="lead">
+              Отладка HTTP и WebSocket, коллекции, окружения, Git и импорт OpenAPI —
+              с полноценной офлайн-работой. Альтернатива Postman для повседневной разработки.
+            </p>
+            <div class="hero__actions">
+              <a class="btn btn--primary" id="download-primary" href="#download">
+                Скачать
+              </a>
+              <a
+                class="btn btn--ghost"
+                href="https://github.com/denkarz/pathawk"
+                target="_blank"
+                rel="noopener"
+              >
+                Исходный код
+              </a>
+            </div>
+          </div>
+          <div class="hero__visual" aria-hidden="true">
+            <img src="assets/pathhawk-eagle.svg" alt="" width="280" height="280" />
+          </div>
+        </div>
+      </section>
+
+      <section class="download" id="download">
+        <div class="container">
+          <h2>Скачать portable</h2>
+          <p class="section-lead">
+            Выберите версию и платформу. Сборки не требуют установки (AppImage / portable exe / zip).
+          </p>
+
+          <div class="download__controls">
+            <label class="field">
+              <span>Версия</span>
+              <select id="version-select" aria-label="Версия"></select>
+            </label>
+          </div>
+
+          <div class="cards" id="download-cards"></div>
+
+          <p class="hint" id="release-notes"></p>
+          <p class="hint">
+            Подпись кода появится в следующих релизах. На Windows/macOS система может показать
+            предупреждение при первом запуске — это ожидаемо для unsigned-сборок.
+          </p>
+        </div>
+      </section>
+
+      <section class="features">
+        <div class="container features__grid">
+          <article>
+            <h3>Офлайн</h3>
+            <p>Локальный агент на Go и bbolt — данные на вашем компьютере.</p>
+          </article>
+          <article>
+            <h3>Git</h3>
+            <p>Коллекции в репозитории, в том числе на сервере компании.</p>
+          </article>
+          <article>
+            <h3>Импорт</h3>
+            <p>OpenAPI и Postman Collection — перенос существующих наборов запросов.</p>
+          </article>
+        </div>
+      </section>
+    </main>
+
+    <footer class="footer">
+      <div class="container footer__inner">
+        <span>© 2026 Pathawk · MIT</span>
+        <a href="https://github.com/denkarz/pathawk/releases">Все версии</a>
+      </div>
+    </footer>
+
+    <script src="app.js" type="module"></script>
+  </body>
+</html>
