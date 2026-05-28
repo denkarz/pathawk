@@ -153,25 +153,3 @@ jobs:
           git commit -m "chore(website): update releases.json for ${{ github.ref_name }}"
           git push
 
-  deploy-pages:
-    needs: update-website-manifest
-    runs-on: ubuntu-latest
-    permissions:
-      pages: write
-      id-token: write
-    environment:
-      name: github-pages
-      url: ${{ steps.deployment.outputs.page_url }}
-    steps:
-      - uses: actions/checkout@v4
-        with:
-          ref: master
-
-      - uses: actions/configure-pages@v5
-
-      - uses: actions/upload-pages-artifact@v3
-        with:
-          path: website/public
-
-      - id: deployment
-        uses: actions/deploy-pages@v4
