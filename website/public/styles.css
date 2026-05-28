@@ -262,6 +262,53 @@ a:hover {
   color: var(--muted);
 }
 
+/* Новый download UX */
+.download__main {
+  display: flex;
+  flex-wrap: wrap;
+  align-items: flex-end;
+  gap: 1rem;
+  margin-bottom: 1.5rem;
+}
+
+.btn--big {
+  font-size: 1.1rem;
+  padding: 0.85rem 2.25rem;
+  min-width: 260px;
+  justify-content: center;
+}
+
+.download__other {
+  display: flex;
+  flex-direction: column;
+  gap: 0.35rem;
+  min-width: 260px;
+}
+
+.download__other label {
+  font-size: 0.85rem;
+  color: var(--muted);
+}
+
+.download__other select {
+  background: var(--bg-elevated);
+  border: 1px solid var(--border);
+  color: var(--text);
+  border-radius: 8px;
+  padding: 0.55rem 0.7rem;
+  font: inherit;
+}
+
+.version-badge {
+  font-size: 0.7em;
+  background: var(--accent);
+  color: #fff;
+  padding: 0.1em 0.5em;
+  border-radius: 4px;
+  vertical-align: middle;
+  margin-left: 0.5em;
+}
+
 .footer {
   border-top: 1px solid var(--border);
   padding: 1.25rem 0;

@@ -49,6 +49,7 @@
     },
     "mac": {
       "target": ["zip"],
+      "arch": ["x64", "arm64"],
       "artifactName": "Pathawk-${version}-${os}-${arch}.${ext}"
     }
   },

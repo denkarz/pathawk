@@ -63,19 +63,19 @@
 
       <section class="download" id="download">
         <div class="container">
-          <h2>Скачать portable</h2>
+          <h2>Скачать portable <span id="version-badge" class="version-badge"></span></h2>
           <p class="section-lead">
-            Выберите версию и платформу. Сборки не требуют установки (AppImage / portable exe / zip).
+            Сборки не требуют установки (AppImage / portable exe / zip). Выберите платформу.
           </p>
 
-          <div class="download__controls">
-            <label class="field">
-              <span>Версия</span>
-              <select id="version-select" aria-label="Версия"></select>
-            </label>
-          </div>
+          <div class="download__main">
+            <a id="download-btn" class="btn btn--primary btn--big" href="#">Скачать</a>
 
-          <div class="cards" id="download-cards"></div>
+            <div class="download__other">
+              <label for="platform-select">Другая платформа</label>
+              <select id="platform-select" aria-label="Выбор платформы"></select>
+            </div>
+          </div>
 
           <p class="hint" id="release-notes"></p>
           <p class="hint">
