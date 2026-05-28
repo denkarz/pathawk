@@ -4,7 +4,7 @@ on:
   push:
     branches: [master]
     paths:
-      - "website/public/**"
+      - "website/**"
   workflow_dispatch:
 
 permissions:
