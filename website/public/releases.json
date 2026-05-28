@@ -1,4 +1,29 @@
 {
   "latest": "0.1.0",
-  "releases": []
+  "releases": [
+    {
+      "version": "0.1.0",
+      "tag": "v0.1.0",
+      "published_at": "2026-05-28",
+      "notes": "**Full Changelog**: https://github.com/denkarz/pathawk/commits/v0.1.0",
+      "assets": {
+        "linux-x64-tar": {
+          "url": "https://github.com/denkarz/pathawk/releases/download/v0.1.0/Pathawk-0.1.0-linux-x64.tar.gz",
+          "name": "Pathawk-0.1.0-linux-x64.tar.gz"
+        },
+        "linux-x64-appimage": {
+          "url": "https://github.com/denkarz/pathawk/releases/download/v0.1.0/Pathawk-0.1.0-linux-x86_64.AppImage",
+          "name": "Pathawk-0.1.0-linux-x86_64.AppImage"
+        },
+        "mac-arm64": {
+          "url": "https://github.com/denkarz/pathawk/releases/download/v0.1.0/Pathawk-0.1.0-mac-arm64.zip",
+          "name": "Pathawk-0.1.0-mac-arm64.zip"
+        },
+        "win-x64": {
+          "url": "https://github.com/denkarz/pathawk/releases/download/v0.1.0/Pathawk-0.1.0-win-x64-portable.exe",
+          "name": "Pathawk-0.1.0-win-x64-portable.exe"
+        }
+      }
+    }
+  ]
 }
